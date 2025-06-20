@@ -1,0 +1,19 @@
+@use './variables';
+@use './header';
+@use './timeline';
+@use './event';
+@use './charts';
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f0eeee;
+
+    &::selection {
+      background-color: #4AB80F;
+      color: white;
+    }
+  }

@@ -1,0 +1,73 @@
+/* ================================ОБЩИЕ СТИЛИ ДЛЯ СТРАНИЦЫ================================ */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('path/to/your/image.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+  
+  .charts-container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .tab-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: #f9f9f9;
+    color: #353535;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .tab-button.active {
+    background-color: #4AB80F;
+    color: white;
+  }
+  
+  .tab-button:hover {
+    transform: scale(1.03);
+  }
+  
+  .chart-block {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .chart-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #353535;
+    margin-bottom: 20px;
+    text-align: left;
+  }
+  
+  .chart-wrapper {
+    margin-top: 20px;
+  }
+  
+  .loading-text {
+    font-size: 1rem;
+    color: #666;
+    text-align: center;
+  }
+  
+  /* ================================ДОПОЛНИТЕЛЬНЫЕ СТИЛИ ДЛЯ ДИАГРАММ================================ */
+  canvas {
+    max-height: 400px;
+  }

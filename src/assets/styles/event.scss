@@ -1,0 +1,748 @@
+/* ================================
+ОБЩИЕ СТИЛИ ДЛЯ СТРАНИЦЫ СОБЫТИЯ
+================================ */
+
+body {
+    margin: 0; /* Убираем отступы по умолчанию */
+    font-family: Arial, sans-serif; /* Опционально: задаем шрифт */
+    background-image: url('path/to/your/image.jpg'); /* Путь к вашему изображению */
+    background-size: cover; /* Растягиваем изображение на весь экран */
+    background-position: center; /* Центрируем изображение */
+    background-repeat: no-repeat; /* Запрещаем повторение фона */
+    background-attachment: fixed; /* Фиксируем фон (не скроллится вместе с контентом) */
+    min-height: 100vh; /* Минимальная высота страницы */
+}
+
+.event-details-container {
+    max-width: 56.5rem;
+    margin: 10px auto;
+    padding: 20px;
+}
+
+.block-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px; /* Отступ между блоками */
+}
+
+/* Объединенный блок: фото + информация о событии */
+.header-block-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px; /* Отступ между блоками */
+}
+
+/* Контейнер для фото */
+.photo-container {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    height: 300px;
+    overflow: hidden;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.photo-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.photo-container:hover img {
+    transform: scale(1.2);
+}
+
+/* Контейнер для информации о событии */
+.event-info-container {
+    text-align: center;
+}
+
+/* Заголовок события */
+.event-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #353535;
+    margin-bottom: 10px;
+    transition: color 0.3s ease;
+
+    &:hover {
+        color: #4AB80F;
+    }
+}
+
+/* Мета-информация (даты, локация) */
+.event-meta {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.event-date,
+.event-location {
+    margin: 5px 0;
+}
+
+/* Описание события */
+.event-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+/* Участники */
+.participants h3,
+.links h3,
+.related-events h3 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #353535;
+    margin-bottom: 10px;
+    text-align: left; /* Заголовки сдвинуты влево */
+}
+
+.participants ul,
+.links ul,
+.related-events ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.participant-item,
+.link-item,
+.related-event-item {
+    text-align: center;
+    background-color: #f9f9f9;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    color: #353535;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+
+    &:hover {
+        transform: scale(1.03);
+        background-color: #f2faee;
+    }
+
+    &:active {
+        background-color: #4AB80F;
+        color: white;
+    }
+}
+
+.participant-item {
+    cursor: default;
+
+    &:active {
+        background-color: #f2faee;
+        color: #353535;
+    } 
+}
+
+/* Ссылки */
+.link-item a {
+    text-decoration: none;
+    color: #353535;
+    transition: color 0.3s ease;
+
+    &:hover {
+        color: #4AB80F;
+    }
+}
+
+/* ================================
+КНОПКА "НАЗАД"
+================================ */
+
+.back-button-container {
+    display: flex;
+    justify-content: center; /* Размещаем кнопку по центру */
+    margin-top: 20px; /* Отступ сверху */
+}
+
+.back-button {
+    padding: 0.7rem 4rem;
+    background-color: #4AB80F;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+
+    &:hover {
+        background-color: #38a80d;
+        transform: scale(1.05);
+    }
+
+    &:active {
+        background-color: #2f700d;
+    }
+}
+
+/* ================================
+СПИННЕР ЗАГРУЗКИ
+================================ */
+
+.loading-spinner-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Занимает всю высоту экрана */
+}
+
+.loading-spinner {
+    border: 6px solid #f3f3f3; /* Цвет фона спиннера */
+    border-top: 6px solid #4AB80F; /* Цвет активной части спиннера */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite; /* Анимация вращения */
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* ================================
+СВЯЗАННЫЕ МЕРОПРИЯТИЯ
+================================ */
+
+.related-events h3 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #353535;
+    margin-bottom: 10px;
+    text-align: left; /* Заголовки сдвинуты влево */
+}
+
+.related-events ul {
+    padding-left: 0; /* Убираем отступ слева */
+    list-style: none; /* Убираем маркеры списка */
+    margin: 0; /* Убираем внешние отступы */
+}
+
+.related-event-item {
+    position: relative;
+    background-color: #f9f9f9;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+
+    &:hover {
+        transform: scale(1.03);
+        background-color: #f2faee;
+    }
+
+    &:active {
+        background-color: #4AB80F;
+        color: white;
+    }
+}
+
+.event-info {
+    font-size: 1rem;
+    color: #353535;
+}
+
+/* Всплывающее окно */
+.event-tooltip {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 110%;
+    transform: translateY(-50%);
+    background-color: #4AB80F;
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    max-width: 300px;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    word-wrap: break-word;
+}
+
+.related-event-item:hover .event-tooltip {
+    display: block;
+}
+
+/* ================================
+ГАЛЕРЕЯ ИЗОБРАЖЕНИЙ
+================================ */
+
+.gallery-block h3 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #353535;
+    margin-bottom: 10px;
+    text-align: left; /* Заголовок сдвинут влево */
+}
+
+.gallery-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.active-image-container {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    height: 400px;
+    margin-bottom: 20px;
+}
+
+.active-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+}
+
+.left-arrow {
+    left: 10px;
+}
+
+.right-arrow {
+    right: 10px;
+}
+
+.thumbnails-container {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 10px;
+    overflow-x: auto; /* Добавляем горизонтальный скролл при необходимости */
+    padding-bottom: 10px; /* Добавляем отступ снизу */
+}
+
+.thumbnail {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+    opacity: 0.6;
+    cursor: pointer;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+
+    &:hover {
+        opacity: 1;
+        transform: scale(1.03);
+    }
+}
+
+.active-thumbnail {
+    opacity: 1;
+    border: 2px solid #4AB80F;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* ================================
+ГАЛЕРЕЯ ИЗОБРАЖЕНИЙ
+================================ */
+
+.gallery-block {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.gallery-block h3 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #353535;
+    margin-bottom: 1rem;
+    margin-top: 0rem;
+    text-align: center;
+}
+
+.gallery-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.image-navigation {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 20px;
+    transition: 1s;
+}
+
+.active-image {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+}
+
+.left-arrow {
+    left: -50px; /* Стрелка слева от изображения */
+}
+
+.right-arrow {
+    right: -50px; /* Стрелка справа от изображения */
+}
+
+.thumbnails-container {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 53.5rem;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 10px;
+    overflow: hidden;
+    padding: 1rem 0rem;
+}
+
+.thumbnail {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+    opacity: 0.6;
+    cursor: pointer;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+
+    &:hover {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+}
+
+.active-thumbnail {
+    opacity: 1;
+    outline: 1px solid #4AB80F;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* ================================
+БЛОК ВИДЕО
+================================ */
+
+.video-block {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.video-block h3 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #353535;
+    margin-bottom: 10px;
+    text-align: center;
+    margin-top: 0;
+}
+
+.video-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 30rem;
+}
+
+.video-navigation {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 20px;
+    min-height: 22rem;
+}
+
+.active-video {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.video-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+}
+
+.left-arrow {
+    left: -50px; /* Стрелка слева от видео */
+}
+
+.right-arrow {
+    right: -50px; /* Стрелка справа от видео */
+}
+
+.thumbnails-container {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 10px;
+    overflow-x: auto; /* Добавляем горизонтальный скролл при необходимости */
+    padding: 0.8rem; /* Добавляем отступ снизу */
+}
+
+.thumbnail {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+    opacity: 0.6;
+    cursor: pointer;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+
+    &:hover {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+}
+
+/* ================================
+БЛОК ДОКУМЕНТОВ
+================================ */
+.documents-block {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.documents-block h3 {
+    margin-top: 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #353535;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.documents-container {
+    display: flex;
+    flex-wrap: wrap; /* Перенос на новую строку при заполнении */
+    gap: 10px; /* Отступ между элементами */
+    justify-content: flex-start; /* Выравнивание по левому краю */
+}
+
+.document-item {
+    display: flex;
+    align-items: center;
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    width: fit-content; /* Подстраиваем ширину под содержимое */
+}
+
+.document-item:hover {
+    transform: scale(1.03);
+    background-color: #f2faee;
+}
+
+.document-icon {
+    font-size: 1.5rem;
+    color: #4AB80F;
+    margin-right: 10px;
+    cursor: default;
+}
+
+.document-name {
+    font-size: 1rem;
+    color: #353535;
+    margin-right: 10px;
+    cursor: default;
+}
+
+.download-button {
+    padding: 5px 10px;
+    background-color: #4AB80F;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.download-button:hover {
+    background-color: #38a80d;
+}
+
+/* ================================
+ТИП МЕРОПРИЯТИЯ
+================================ */
+.event-type {
+    font-size: 1rem;
+    color: #4AB80F; /* Цвет текста */
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+
+}
+
+.event-type-badge {
+    display: inline-block;
+    background-color: #f2faee;
+    color: #4AB80F;
+    padding: 7px 30px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    cursor: default;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+/* ================================
+БЛОК ПРЕДМЕТОВ
+================================ */
+.block-container.items-block {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.items-block h3 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #353535;
+    margin-bottom: 10px;
+    text-align: left; /* Заголовок сдвинут влево */
+}
+
+.items-block ul {
+    list-style: none; /* Убираем маркеры списка */
+    padding: 0; /* Убираем отступ слева */
+    margin: 0; /* Убираем внешние отступы */
+}
+
+.item-item {
+    position: relative;
+    background-color: #f9f9f9;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    cursor: default;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+
+    &:hover {
+        transform: scale(1.03);
+        background-color: #f2faee;
+    }
+}
+
+.item-name {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #353535;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.item-description {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.4;
+    margin: 0;
+}
